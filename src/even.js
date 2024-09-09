@@ -35,6 +35,7 @@ const checkAnswer = (val, answer, userName) => {
       rightAnswer = 'no';
     }
     console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. \nLet's try again, ${userName}!`);
+    return false;
   }
 };
 
@@ -65,7 +66,10 @@ export default () => {
       return false;
     }
     // check answer - function
-    checkAnswer(randomNum, answer, userName);
+    const result = checkAnswer(randomNum, answer, userName);
+    if (result === false) {
+      return false;
+    }
     if (i === 3) {
       console.log(`Congratulations, ${userName}!`);
     }
