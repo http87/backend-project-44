@@ -56,13 +56,7 @@ export default () => {
 
     // check correct text
     if (answer !== 'yes' && answer !== 'no') {
-      let rightAnswer = '';
-      if (answer === 'no') {
-        rightAnswer = 'yes / no';
-      } else if (answer === 'yes') {
-        rightAnswer = 'yes / no';
-      }
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. \nLet's try again, ${userName}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was 'yes / no'. \nLet's try again, ${userName}!`);
       return false;
     }
     // check answer - function
