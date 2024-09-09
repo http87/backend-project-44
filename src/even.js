@@ -1,6 +1,9 @@
 import readlineSync from 'readline-sync';
 
-let rightAnswerCounter = 0; // count amout of right answer - global
+// Возвращает рандомно целое число от 0 до max
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
 
 /**
  * Возвращает true / false
@@ -24,7 +27,6 @@ const checkAnswer = (val, answer, userName) => {
   // Conclusion depending on the answer
   if (result === true) {
     console.log('Correct!');
-    rightAnswerCounter += 1;
   } else {
     let rightAnswer = '';
     if (answer === 'no') {
@@ -32,7 +34,7 @@ const checkAnswer = (val, answer, userName) => {
     } else if (answer === 'yes') {
       rightAnswer = 'no';
     }
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. \nLet's try again, ${userName}! 2`);
+    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. \nLet's try again, ${userName}!`);
   }
 };
 
@@ -44,11 +46,11 @@ export default () => {
 
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-  const [FIRST_Q, SECOND_Q, RIGHT_Q] = [15, 6, 7]; // arr with questions
-  const arrQuestion = [FIRST_Q, SECOND_Q, RIGHT_Q];
-  for (const val of arrQuestion) {
+  const length = 3;
+  for (let i = 1; i <= 3; i += 1) {
+    const randomNum = getRandomInt(40);
     // output question / input answer
-    const answer = readlineSync.question(`Question: ${val} => `);
+    const answer = readlineSync.question(`Question: ${randomNum} => `);
     console.log(`Your answer: ${answer}`);
 
     // check correct text
@@ -59,13 +61,13 @@ export default () => {
       } else if (answer === 'yes') {
         rightAnswer = 'yes / no';
       }
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. \nLet's try again, ${userName}! 1`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'. \nLet's try again, ${userName}!`);
       return false;
     }
     // check answer - function
-    checkAnswer(val, answer, userName);
-  }
-  if (rightAnswerCounter === 3) { // if all right - global
-    return `Congratulations, ${userName}!`;
+    checkAnswer(randomNum, answer, userName);
+    if (i === 3) {
+      console.log(`Congratulations, ${userName}!`);
+    }
   }
 };
