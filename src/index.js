@@ -1,5 +1,13 @@
 import readlineSync from 'readline-sync';
 
+// Возвращает рандомно целое число от 0 до max
+const getRandomInt = () => {
+  const max = 40;
+  const range = Math.floor(Math.random() * max);
+  const randomNum = range + 2; // + 2, чтобы исключить 0 и 1
+  return randomNum;
+};
+
 export default (arr, rules) => {
   // 1. знакомимся
   console.log('Welcome to the Brain Games!');
@@ -7,7 +15,9 @@ export default (arr, rules) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
 
-  if (rules === 'prime' || rules === 'even') {
+  if (rules === 'prime') {
+    console.log('Answer "yes" if the number is prime, otherwise answer "no". ');
+  } else if (rules === 'even') {
     console.log('Answer "yes" if the number is even, otherwise answer "no". ');
   } else {
     console.log(rules);
@@ -16,7 +26,7 @@ export default (arr, rules) => {
   for (let i = 0; i < arr.length; i += 1) {
     // показываем вопрос / принимаем ответ
     console.log(`Question: ${arr[i][0]}`);
-    const userAnswer = readlineSync.question('`Your answer: `');
+    const userAnswer = readlineSync.question('Your answer: ');
     const expectedAnswer = String(arr[i][1]);
     if (expectedAnswer === userAnswer) {
       console.log('Correct!');
@@ -30,3 +40,5 @@ export default (arr, rules) => {
   }
   return null;
 };
+
+export { getRandomInt };

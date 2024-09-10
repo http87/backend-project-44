@@ -1,7 +1,4 @@
-import engine from '../index.js';
-
-// Возвращает рандомно целое число от 0 до max
-const getRandomInt = (max) => Math.floor(Math.random() * max);
+import engine, { getRandomInt } from '../index.js';
 
 /**
  * Возвращает x, возведённое в n-ную степень.
