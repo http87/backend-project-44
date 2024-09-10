@@ -7,7 +7,11 @@ export default (arr, rules) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
 
-  console.log(rules);
+  if (rules === 'prime' || rules === 'even') {
+    console.log('Answer "yes" if the number is even, otherwise answer "no". ');
+  } else {
+    console.log(rules);
+  }
 
   for (let i = 0; i < arr.length; i += 1) {
     // показываем вопрос / принимаем ответ

@@ -13,11 +13,8 @@ const isPrime = (num) => {
 
 export default () => {
   // Рассказываем о оправилах игры
-  const rules = 'Answer "yes" if the number is prime, otherwise answer "no". ';
   const arr = []; // [[question = '', correctAnswer = '']]
-  const stages = 3; // всего три этапа / 3 вопроса
-
-  for (let i = 1; i <= stages; i += 1) {
+  for (let i = 1; i <= 3; i += 1) {
     // - формируем вопросы
     const range = 40; // from 0 to 40
     const randomNum = getRandomInt(range) + 2; // + 2, чтобы исключить 0 и 1
@@ -26,6 +23,5 @@ export default () => {
     const expectedAnswer = isPrime(randomNum) ? 'yes' : 'no';
     arr.push([randomNum, expectedAnswer]);
   }
-
-  engine(arr, rules);
+  engine(arr, 'prime');
 };

@@ -7,12 +7,8 @@ const getRandomInt = (max) => Math.floor(Math.random() * max);
 const isEven = (number) => number % 2 === 0;
 
 export default () => {
-  // Рассказываем о оправилах игры
-  const rules = 'Answer "yes" if the number is even, otherwise answer "no". ';
   const arr = []; // [[question = '', correctAnswer = '']]
-  const stages = 3; // всего три этапа / 3 вопроса
-
-  for (let i = 1; i <= stages; i += 1) {
+  for (let i = 1; i <= 3; i += 1) {
     // - формируем вопросы
     const range = 40; // from 0 to 40
     const randomNum = getRandomInt(range) + 1; // + 1, чтобы исключить 0
@@ -21,6 +17,5 @@ export default () => {
     const expectedAnswer = isEven(randomNum) ? 'yes' : 'no';
     arr.push([randomNum, expectedAnswer]);
   }
-
-  engine(arr, rules);
+  engine(arr, 'even');
 };
