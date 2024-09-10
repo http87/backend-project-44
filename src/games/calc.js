@@ -32,7 +32,7 @@ export default () => {
   
   for (let i = 1; i <= stages; i += 1) {
     // - формируем вопросы
-    const range = 10; // from 0 to 40
+    const range = 10; // from 0 to 10
     const x = getRandomInt(range);
     const y = getRandomInt(range);
     const randActionNum = getRandomInt(3);
