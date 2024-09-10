@@ -12,13 +12,14 @@ export default () => {
 
   for (let i = 1; i <= stages; i += 1) {
     // - формируем вопросы
-    const x = Math.abs(getRand(1, 40));
-    const y = Math.abs(getRand(41, 99));
+    const x = Math.abs(getRand(1, 9));
+    const y = Math.abs(getRand(1, 9));
 
     // анализируем ответ
     const expectedAnswer = isGCD(x, y);
-    arr.push([`${x} ${y}`, expectedAnswer]);
-  }
+    const question = x + ' ' + y;
 
+    arr.push([question, expectedAnswer]);
+  }
   engine(arr, rules);
 };
