@@ -4,15 +4,10 @@ import engine from '../index.js';
 const getRandomInt = (max) => Math.floor(Math.random() * max);
 
 // Возвращает рандомно целое число от min до max
-function getLengthProgression(min, max) {
+const getLengthProgression = (min, max) => {
   // случайное число от min до (max+1)
-  let rand = min + Math.random() * (max + 1 - min);
+  const rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
-}
-
-// GET: even odd (return boolean)
-const isProgression = () => {
-
 };
 
 export default () => {
@@ -27,7 +22,7 @@ export default () => {
     const lengthProgressionMax = 10;
     const lengthProgression = getLengthProgression(lengthProgressionMin, lengthProgressionMax);
     const stepIncrease = getRandomInt(5) + 1;
-    let numSkip = getRandomInt(lengthProgression - 2) + 1;
+    const numSkip = getRandomInt(lengthProgression - 2) + 1;
     let valueProgression = numStartProgression;
     let progression = '';
     let expectedAnswer = 0;
@@ -41,9 +36,8 @@ export default () => {
       }
       valueProgression += stepIncrease;
     }
-    
     // анализируем ответ
-    expectedAnswer = expectedAnswer + '';
+    expectedAnswer += '';
     arr.push([`${progression}`, expectedAnswer]);
   }
 

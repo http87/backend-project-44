@@ -29,7 +29,7 @@ export default () => {
   const rules = 'What is the result of the expression? ';
   const arr = []; // [[question = '', correctAnswer = '']]
   const stages = 3; // всего три этапа / 3 вопроса
-  
+
   for (let i = 1; i <= stages; i += 1) {
     // - формируем вопросы
     const range = 10; // from 0 to 10
@@ -43,8 +43,5 @@ export default () => {
     const expectedAnswer = isCalc(x, y, randAction);
     arr.push([`${x} ${randAction} ${y}`, expectedAnswer]);
   }
-  
   engine(arr, rules);
-
 };
-

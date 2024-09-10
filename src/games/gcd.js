@@ -1,5 +1,5 @@
+import { gcd } from 'mathjs';
 import engine from '../index.js';
-import { gcd } from 'mathjs'
 
 // Возвращает рандомно целое число от 0 до max
 const getRandomInt = (max) => Math.floor(Math.random() * max);
@@ -18,7 +18,7 @@ export default () => {
     const range = 20; // from 0 to 20
     const x = getRandomInt(range);
     const y = getRandomInt(range);
-    
+
     // анализируем ответ
     const expectedAnswer = isGCD(x, y);
     arr.push([`${x} ${y}`, expectedAnswer]);
