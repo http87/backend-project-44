@@ -15,7 +15,7 @@ export default (arr, rules) => {
 
   for (let i = 0; i < arr.length; i += 1) {
     // показываем вопрос / принимаем ответ
-    const userAnswer = readlineSync.question(`Question: ${arr[i][0]} => `);
+    const userAnswer = readlineSync.question(`Question: ${arr[i][0]}`);
     console.log(`Your answer: ${userAnswer}`);
     const expectedAnswer = String(arr[i][1]);
     if (expectedAnswer === userAnswer) {
