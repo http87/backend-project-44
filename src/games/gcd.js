@@ -1,12 +1,5 @@
 import { gcd } from 'mathjs';
-import engine from '../index.js';
-
-// Возвращает рандомно целое число от min до max
-const getRandNum = (min, max) => {
-  // случайное число от min до (max+1)
-  const rand = min + Math.random() * (max + 1 - min);
-  return Math.floor(rand);
-};
+import engine, { getRand } from '../index.js';
 
 // GET: even odd (return boolean)
 const isGCD = (x, y) => gcd(x, y);
@@ -19,8 +12,8 @@ export default () => {
 
   for (let i = 1; i <= stages; i += 1) {
     // - формируем вопросы
-    const x = getRandNum(1, 40);
-    const y = getRandNum(41, 99);
+    const x = getRand(1, 40);
+    const y = getRand(41, 99);
 
     // анализируем ответ
     const expectedAnswer = isGCD(x, y);

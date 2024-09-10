@@ -8,6 +8,13 @@ const getRandomInt = () => {
   return randomNum;
 };
 
+// Возвращает рандомно целое число от min до max
+const getRand = (min, max) => {
+  // случайное число от min до (max+1)
+  const rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+};
+
 export default (arr, rules) => {
   // 1. знакомимся
   console.log('Welcome to the Brain Games!');
@@ -41,4 +48,4 @@ export default (arr, rules) => {
   return null;
 };
 
-export { getRandomInt };
+export { getRandomInt, getRand };
