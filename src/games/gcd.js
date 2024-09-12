@@ -12,12 +12,12 @@ export default () => {
 
   for (let i = 1; i <= stages; i += 1) {
     // - формируем вопросы
-    const x = Math.abs(getRand(1, 9));
-    const y = Math.abs(getRand(10, 20));
+    const number1 = Math.abs(getRand(1, 9));
+    const number2 = Math.abs(getRand(10, 20));
 
     // анализируем ответ
-    const expectedAnswer = isGCD(x, y);
-    const question = '3 3';
+    const expectedAnswer = isGCD(number1, number2);
+    const question = `${number1} ${number2}`; //Question: <number1> <number2>
 
     arr.push([question, expectedAnswer]);
   }
