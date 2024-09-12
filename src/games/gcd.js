@@ -17,7 +17,7 @@ export default () => {
 
     // анализируем ответ
     const expectedAnswer = isGCD(x, y);
-    const question = x + ' ' + y;
+    const question = '3 3';
 
     arr.push([question, expectedAnswer]);
   }
