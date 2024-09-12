@@ -23,9 +23,9 @@ export default (arr, rules) => {
   console.log(`Hello, ${userName}!`);
 
   if (rules === 'prime') {
-    console.log('Answer "yes" if the number is prime, otherwise answer "no". ');
+    console.log('Answer "yes" if the number is prime, otherwise answer "no".');
   } else if (rules === 'even') {
-    console.log('Answer "yes" if the number is even, otherwise answer "no". ');
+    console.log('Answer "yes" if the number is even, otherwise answer "no".');
   } else {
     console.log(rules);
   }

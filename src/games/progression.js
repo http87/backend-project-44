@@ -5,7 +5,7 @@ const getRandomInt = (max) => Math.floor(Math.random() * max);
 
 export default () => {
   // Рассказываем о оправилах игры
-  const rules = 'What number is missing in the progression? ';
+  const rules = 'What number is missing in the progression?';
   const arr = []; // [[question = '', correctAnswer = '']]
   const stages = 3; // всего три этапа / 3 вопроса
   for (let i = 1; i <= stages; i += 1) {

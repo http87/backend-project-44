@@ -6,7 +6,7 @@ const isGCD = (x, y) => gcd(x, y);
 
 export default () => {
   // Рассказываем о оправилах игры
-  const rules = 'Find the greatest common divisor of given numbers. ';
+  const rules = 'Find the greatest common divisor of given numbers.';
   const arr = []; // [[question = '', correctAnswer = '']]
   const stages = 3; // всего три этапа / 3 вопроса
 

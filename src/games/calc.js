@@ -26,7 +26,7 @@ const isCalc = (x, y, action) => {
 
 export default () => {
   // Рассказываем о оправилах игры
-  const rules = 'What is the result of the expression? ';
+  const rules = 'What is the result of the expression?';
   const arr = []; // [[question = '', correctAnswer = '']]
   const stages = 3; // всего три этапа / 3 вопроса
 
