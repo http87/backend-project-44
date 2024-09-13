@@ -22,9 +22,9 @@ https://asciinema.org/a/2ejVX79kFo0xNpQ645aWsUGvp
 1. Установите Node.js последней версии в систему глобально (Установка JavaScript).
 
 2. Склонируйте репозиторий проекта локально используя команду 
-
- > git clone git@github.com:http87/backend-project-44 
-
+```
+git clone git@github.com:http87/backend-project-44 
+```
 3. Инициализируйте npm-пакет внутри корневой директории проекта, используя команду npm init.
 
 4. Установите [npm make](https://www.npmjs.com/package/make)
@@ -38,5 +38,6 @@ make setup
 npm link
 ```
 6. В консоли, используя команду cd войдте в корневой каталог, где расположена игра и введите одно из названий игры: например 
-
-> brain-event
+```
+brain-event
+```
