@@ -1,28 +1,4 @@
-import engine from '../index.js';
-
-// Возвращает рандомно целое число от 0 до max
-const getRandomInt = (max) => Math.floor(Math.random() * max);
-
-/**
- * Возвращает x, возведённое в n-ную степень.
- *
- * @param {number} x первое рандомное число.
- * @param {number} y второе рандомное число.
- * @param {string} action действие, выполняемое над числами.
- * @return {number}
- */
-const isCalc = (x, y, action) => {
-  switch (action) {
-    case '+':
-      return x + y;
-    case '-':
-      return x - y;
-    case '*':
-      return x * y;
-    default:
-      return false;
-  }
-};
+import engine, { isCalc, getRandomInt } from '../index.js';
 
 export default () => {
   // Рассказываем о оправилах игры

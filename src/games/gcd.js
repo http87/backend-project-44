@@ -1,4 +1,4 @@
-import engine, { getRand, isGCD } from '../index.js';
+import engine, { getRandWithRange, isGCD } from '../index.js';
 
 export default () => {
   // Рассказываем о оправилах игры
@@ -8,8 +8,8 @@ export default () => {
 
   for (let i = 1; i <= stages; i += 1) {
     // - формируем вопросы
-    const number1 = getRand(1, 20);
-    const number2 = getRand(1, 20);
+    const number1 = getRandWithRange(1, 20);
+    const number2 = getRandWithRange(1, 20);
 
     // анализируем ответ
     const expectedAnswer = isGCD(number1, number2);

@@ -1,7 +1,4 @@
-import engine, { getRand } from '../index.js';
-
-// Возвращает рандомно целое число от 0 до max
-const getRandomInt = (max) => Math.floor(Math.random() * max);
+import engine, { getRandWithRange, getRandomInt } from '../index.js';
 
 export default () => {
   // Рассказываем о оправилах игры
@@ -13,7 +10,7 @@ export default () => {
     const numStartProgression = getRandomInt(20) + 1;
     const lengthProgressionMin = 5;
     const lengthProgressionMax = 10;
-    const lengthProgression = getRand(lengthProgressionMin, lengthProgressionMax);
+    const lengthProgression = getRandWithRange(lengthProgressionMin, lengthProgressionMax);
     const stepIncrease = getRandomInt(5) + 1;
     const numSkip = getRandomInt(lengthProgression - 2) + 1;
     let valueProgression = numStartProgression;
