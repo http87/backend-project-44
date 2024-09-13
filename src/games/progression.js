@@ -31,6 +31,7 @@ export default () => {
     }
     // анализируем ответ
     expectedAnswer += '';
+    progression = progression.trim();
     arr.push([`${progression}`, expectedAnswer]);
   }
 
