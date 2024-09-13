@@ -43,14 +43,7 @@ export default (arr, rules) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-
-  if (rules === 'prime') {
-    console.log('Answer "yes" if the number is prime, otherwise answer "no".');
-  } else if (rules === 'even') {
-    console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  } else {
-    console.log(rules);
-  }
+  console.log(rules);
 
   for (let i = 0; i < arr.length; i += 1) {
     console.log(`Question: ${arr[i][0]}`);

@@ -9,6 +9,7 @@ const isPrime = (num) => {
 };
 
 export default () => {
+  const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   // Рассказываем о оправилах игры
   const arr = []; // [[question = '', correctAnswer = '']]
   for (let i = 1; i <= 3; i += 1) {
@@ -17,5 +18,5 @@ export default () => {
     const expectedAnswer = isPrime(randInt) ? 'yes' : 'no';
     arr.push([randInt, expectedAnswer]);
   }
-  engine(arr, 'prime');
+  engine(arr, rules);
 };
