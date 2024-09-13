@@ -1,14 +1,38 @@
 import readlineSync from 'readline-sync';
 
-// Возвращает рандомно целое число от 0 до max
+// returt greatest common divisor
+const isGCD = (x, y) => {
+  let maxDivisor = 0;
+  if (x === y) {
+    maxDivisor = x;
+    return maxDivisor;
+  }
+  if (x === 1 || y === 1) {
+    maxDivisor = 1;
+    return maxDivisor;
+  }
+  if (x !== y) {
+    const min = (x < y) ? x : y;
+    let i = 1;
+    while (i <= min) {
+      if (x % i === 0 && y % i === 0) {
+        maxDivisor = i;
+      }
+      i += 1;
+    }
+  }
+  return maxDivisor;
+};
+
+// return random num from 2 to 40
 const getRandomInt = () => {
   const max = 40;
   const range = Math.floor(Math.random() * max);
-  const randomNum = range + 2; // + 2, чтобы исключить 0 и 1
+  const randomNum = range + 2; // + 2, to except 0 и 1
   return randomNum;
 };
 
-// Возвращает рандомно целое число от min до max
+// return rundom num from min to max
 const getRand = (min, max) => {
   // случайное число от min до (max+1)
   const rand = min + Math.random() * (max + 1 - min);
@@ -16,9 +40,7 @@ const getRand = (min, max) => {
 };
 
 export default (arr, rules) => {
-  // 1. знакомимся
   console.log('Welcome to the Brain Games!');
-
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
 
@@ -31,7 +53,6 @@ export default (arr, rules) => {
   }
 
   for (let i = 0; i < arr.length; i += 1) {
-    // показываем вопрос / принимаем ответ
     console.log(`Question: ${arr[i][0]}`);
     const userAnswer = readlineSync.question('Your answer: ');
     const expectedAnswer = String(arr[i][1]);
@@ -48,4 +69,4 @@ export default (arr, rules) => {
   return null;
 };
 
-export { getRandomInt, getRand };
+export { getRandomInt, getRand, isGCD };
