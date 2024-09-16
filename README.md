@@ -2,7 +2,7 @@
 [![Actions Status](https://github.com/http87/backend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/http87/backend-project-44/actions) <a href="https://codeclimate.com/github/http87/backend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/f9cb8536f3e65137cba0/maintainability" /></a>
 
 ### brain-even
-[![asciicast](https://asciinema.org/a/B5zGbwcO81zHpIqXlKAPMHbYw.svg)](https://asciinema.org/a/B5zGbwcO81zHpIqXlKAPMHbYw)
+[![asciicast](https://asciinema.org/a/KESB71MgFufnCRc4FVWzCJuVl.svg)](https://asciinema.org/a/KESB71MgFufnCRc4FVWzCJuVl)
 
 ### brain-calc
 [![asciicast](https://asciinema.org/a/Iav0Oy3Y1sFLbXrl5CwbXTreX.svg)](https://asciinema.org/a/Iav0Oy3Y1sFLbXrl5CwbXTreX)
