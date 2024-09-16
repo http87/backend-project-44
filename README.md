@@ -2,19 +2,19 @@
 [![Actions Status](https://github.com/http87/backend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/http87/backend-project-44/actions) <a href="https://codeclimate.com/github/http87/backend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/f9cb8536f3e65137cba0/maintainability" /></a>
 
 ### brain-even
-https://asciinema.org/a/B5zGbwcO81zHpIqXlKAPMHbYw
+[![asciicast](https://asciinema.org/a/B5zGbwcO81zHpIqXlKAPMHbYw.svg)](https://asciinema.org/a/B5zGbwcO81zHpIqXlKAPMHbYw)
 
 ### brain-calc
-https://asciinema.org/a/Iav0Oy3Y1sFLbXrl5CwbXTreX
+[![asciicast](https://asciinema.org/a/Iav0Oy3Y1sFLbXrl5CwbXTreX.svg)](https://asciinema.org/a/Iav0Oy3Y1sFLbXrl5CwbXTreX)
 
 ### brain-gcd
-https://asciinema.org/a/I0ca88B4iFnaC7nr6aZts0H00
+[![asciicast](https://asciinema.org/a/I0ca88B4iFnaC7nr6aZts0H00.svg)](https://asciinema.org/a/I0ca88B4iFnaC7nr6aZts0H00)
 
 ### brain-progression
-https://asciinema.org/a/Y99ytSZckHgIX78PJkC9nVIDy
+[![asciicast](https://asciinema.org/a/Y99ytSZckHgIX78PJkC9nVIDy.svg)](https://asciinema.org/a/Y99ytSZckHgIX78PJkC9nVIDy)
 
 ### brain-prime
-https://asciinema.org/a/2ejVX79kFo0xNpQ645aWsUGvp
+[![asciicast](https://asciinema.org/a/2ejVX79kFo0xNpQ645aWsUGvp.svg)](https://asciinema.org/a/2ejVX79kFo0xNpQ645aWsUGvp)
 
 
 ### У С Т А Н О В К А

@@ -1,4 +1,5 @@
-import engine, { getRandWithRange, getRandomInt } from '../index.js';
+import engine from '../index.js';
+import getRandWithRange from '../math.js';
 
 export default () => {
   // Рассказываем о оправилах игры
@@ -7,12 +8,12 @@ export default () => {
   const stages = 3; // всего три этапа / 3 вопроса
   for (let i = 1; i <= stages; i += 1) {
     // - формируем вопросы
-    const numStartProgression = getRandomInt(20) + 1;
+    const numStartProgression = getRandWithRange(1, 20);
     const lengthProgressionMin = 5;
     const lengthProgressionMax = 10;
     const lengthProgression = getRandWithRange(lengthProgressionMin, lengthProgressionMax);
-    const stepIncrease = getRandomInt(5) + 1;
-    const numSkip = getRandomInt(lengthProgression - 2) + 1;
+    const stepIncrease = getRandWithRange(1, 5);
+    const numSkip = getRandWithRange(1, lengthProgression);
     let valueProgression = numStartProgression;
     let progression = '';
     let expectedAnswer = 0;
