@@ -1,15 +1,8 @@
-import engine from '../index.js';
+import engine, { numRounds } from '../index.js';
 import getRandWithRange from '../math.js';
+import actions from '../calc-actions.js';
 
-/**
- * Возвращает x, возведённое в n-ную степень.
- *
- * @param {number} x первое рандомное число.
- * @param {number} y второе рандомное число.
- * @param {string} action действие, выполняемое над числами.
- * @return {number}
- */
-const isCalc = (x, y, action) => {
+const calculate = (x, y, action) => {
   switch (action) {
     case '+':
       return x + y;
@@ -23,23 +16,19 @@ const isCalc = (x, y, action) => {
 };
 
 export default () => {
-  // Рассказываем о оправилах игры
-  const rules = 'What is the result of the expression?';
-  const arr = []; // [[question = '', correctAnswer = '']]
-  const stages = 3; // всего три этапа / 3 вопроса
+  const nameGames = 'calc';
+  const questionsAnswers = [];
 
-  for (let i = 1; i <= stages; i += 1) {
+  for (let i = 0; i < numRounds; i += 1) {
     // - формируем вопросы
     const range = 10; // from 0 to 10
     const x = getRandWithRange(0, range);
     const y = getRandWithRange(0, range);
-    const randActionNum = getRandWithRange(0, 2);
-    const arrAction = ['+', '-', '*'];
-    const randAction = arrAction[randActionNum];
-
-    // анализируем ответ
-    const expectedAnswer = isCalc(x, y, randAction);
-    arr.push([`${x} ${randAction} ${y}`, expectedAnswer]);
+    const randomActionNum = getRandWithRange(0, actions.length - 1);
+    const selectedAction = actions[randomActionNum];
+    const expectedAnswer = calculate(x, y, selectedAction);
+    const question = `${x} ${selectedAction} ${y}`;
+    questionsAnswers.push([question, expectedAnswer]);
   }
-  engine(arr, rules);
+  engine(questionsAnswers, nameGames);
 };

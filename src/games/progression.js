@@ -1,37 +1,40 @@
-import engine from '../index.js';
+import engine, { numRounds } from '../index.js';
 import getRandWithRange from '../math.js';
 
+const getProgressionAndSkipNum = (param) => {
+  const [lengthProgression, numStartProgression, numSkip, stepIncrease] = param;
+  let nextValue = numStartProgression;
+  let progression = '';
+  let expectedAnswer = 0;
+  for (let i = 0; i < lengthProgression; i += 1) {
+    if (numSkip === i) {
+      expectedAnswer = nextValue;
+      progression = `${progression} ..`;
+      nextValue += stepIncrease;
+    }
+    progression = `${progression} ${nextValue}`;
+    nextValue += stepIncrease;
+  }
+  expectedAnswer += '';
+  progression = progression.trim();
+  return [progression, expectedAnswer];
+};
+
 export default () => {
-  // Рассказываем о оправилах игры
-  const rules = 'What number is missing in the progression?';
-  const arr = []; // [[question = '', correctAnswer = '']]
-  const stages = 3; // всего три этапа / 3 вопроса
-  for (let i = 1; i <= stages; i += 1) {
-    // - формируем вопросы
+  const nameGames = 'progression';
+  const questionsAnswers = [];
+
+  for (let i = 0; i < numRounds; i += 1) {
     const numStartProgression = getRandWithRange(1, 20);
-    const lengthProgressionMin = 5;
-    const lengthProgressionMax = 10;
-    const lengthProgression = getRandWithRange(lengthProgressionMin, lengthProgressionMax);
+    const minLengthProgression = 5;
+    const maxLengthProgression = 10;
+    const lengthProgression = getRandWithRange(minLengthProgression, maxLengthProgression);
     const stepIncrease = getRandWithRange(1, 5);
     const numSkip = getRandWithRange(1, lengthProgression);
-    let valueProgression = numStartProgression;
-    let progression = '';
-    let expectedAnswer = 0;
-    // формируем прогрессию
-    for (let j = 1; j <= lengthProgression; j += 1) {
-      if (numSkip === j) {
-        expectedAnswer = valueProgression;
-        progression = `${progression} ..`;
-      } else {
-        progression = `${progression} ${valueProgression}`;
-      }
-      valueProgression += stepIncrease;
-    }
-    // анализируем ответ
-    expectedAnswer += '';
-    progression = progression.trim();
-    arr.push([`${progression}`, expectedAnswer]);
+    const param = [lengthProgression, numStartProgression, numSkip, stepIncrease];
+    const [question, expectedAnswer] = getProgressionAndSkipNum(param);
+    questionsAnswers.push([question, expectedAnswer]);
   }
 
-  engine(arr, rules);
+  engine(questionsAnswers, nameGames);
 };

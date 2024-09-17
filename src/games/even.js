@@ -1,16 +1,15 @@
-import engine from '../index.js';
+import engine, { numRounds } from '../index.js';
 import getRandWithRange from '../math.js';
 
-// GET: even odd (return boolean)
 const isEven = (number) => number % 2 === 0;
 
 export default () => {
-  const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const arr = []; // [[question = '', correctAnswer = '']]
-  for (let i = 1; i <= 3; i += 1) {
-    const randInt = getRandWithRange(2, 40);
-    const expectedAnswer = isEven(randInt) ? 'yes' : 'no';
-    arr.push([randInt, expectedAnswer]);
+  const nameGames = 'even';
+  const questionsAnswers = [];
+  for (let i = 0; i < numRounds; i += 1) {
+    const question = getRandWithRange(2, 40);
+    const expectedAnswer = isEven(question) ? 'yes' : 'no';
+    questionsAnswers.push([question, expectedAnswer]);
   }
-  engine(arr, rules);
+  engine(questionsAnswers, nameGames);
 };
