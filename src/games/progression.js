@@ -1,13 +1,13 @@
 import engine, { numRounds } from '../index.js';
 import getRandWithRange from '../math.js';
 
-const getProgressionAndSkipNum = (param) => {
+const getProgression = (param) => {
   const [lengthProgression, numStartProgression, numSkip, stepIncrease] = param;
   let nextValue = numStartProgression;
   let progression = '';
   let expectedAnswer = 0;
   for (let i = 0; i < lengthProgression; i += 1) {
-    if (numSkip === i) {
+    if (numSkip === i + 1) {
       expectedAnswer = nextValue;
       progression = `${progression} ..`;
       nextValue += stepIncrease;
@@ -31,8 +31,9 @@ export default () => {
     const lengthProgression = getRandWithRange(minLengthProgression, maxLengthProgression);
     const stepIncrease = getRandWithRange(1, 5);
     const numSkip = getRandWithRange(1, lengthProgression);
+
     const param = [lengthProgression, numStartProgression, numSkip, stepIncrease];
-    const [question, expectedAnswer] = getProgressionAndSkipNum(param);
+    const [question, expectedAnswer] = getProgression(param);
     questionsAnswers.push([question, expectedAnswer]);
   }
 
