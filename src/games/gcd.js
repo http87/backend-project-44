@@ -7,7 +7,7 @@ const getGCD = (num1, num2) => {
   let x = num1;
   let y = num2;
   while (x !== 0 && y !== 0) {
-    if (x < y) {
+    if (x <= y) {
       y %= x;
     } else if (y < x) {
       x %= y;
@@ -19,7 +19,6 @@ const getGCD = (num1, num2) => {
 
 export default () => {
   const questionsAnswers = [];
-
   for (let i = 0; i < numRounds; i += 1) {
     const number1 = getRandWithRange(1, 20);
     const number2 = getRandWithRange(1, 20);
