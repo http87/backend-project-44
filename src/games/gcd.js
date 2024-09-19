@@ -13,8 +13,8 @@ const getGCD = (num1, num2) => {
       x %= y;
     }
   }
-
-  return x + y;
+  const result = x + y;
+  return result;
 };
 
 export default () => {

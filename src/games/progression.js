@@ -17,7 +17,6 @@ const getProgression = (lengthProgression, firstElement, step, numSkip) => {
     current = firstElement + (step * i);
     progression.push(current);
   }
-  const expectedAnswer = progression[numSkip];
   progression[numSkip] = '..';
   const question = progression.join(' ');
 
@@ -30,7 +29,7 @@ const getAnswer = (lengthProgression, firstElement, step, numSkip) => {
   for (let i = 0; i < lengthProgression; i += 1) {
     answer = firstElement + (step * i);
     if (numSkip === i) {
-      expectedAnswer =  String(answer);
+      expectedAnswer = String(answer);
       break;
     }
   }
