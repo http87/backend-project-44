@@ -22,17 +22,6 @@ const getProgression = (lengthProgression, firstElement, step, numSkip) => {
   return question;
 };
 
-const getAnswer = (lengthProgression, firstElement, step, numSkip) => {
-  let answer = 0;
-  for (let i = 0; i <= lengthProgression; i += 1) {
-    answer = firstElement + (step * i);
-    if (numSkip === i) {
-      break;
-    }
-  }
-  return answer;
-};
-
 export default () => {
   const questionsAnswers = [];
 
@@ -43,8 +32,7 @@ export default () => {
     const lengthProgression = getLength();
     const numSkip = getRandWithRange(1, lengthProgression);
     const question = getProgression(lengthProgression, firstElement, step, numSkip);
-    const expectedAnswer = getAnswer(lengthProgression, firstElement, step, numSkip);
-
+    const expectedAnswer = firstElement + (step * numSkip);
     questionsAnswers.push([question, expectedAnswer]);
   }
 
