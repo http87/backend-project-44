@@ -23,17 +23,14 @@ const getProgression = (lengthProgression, firstElement, step, numSkip) => {
 };
 
 const getAnswer = (lengthProgression, firstElement, step, numSkip) => {
-  let answer = 0;
-  let expectedAnswer = '';
-  for (let i = 0; i < lengthProgression; i += 1) {
+  let  answer = 0;
+  for (let i = 0; i <= lengthProgression; i += 1) {
     answer = firstElement + (step * i);
     if (numSkip === i) {
-      expectedAnswer = answer;
       break;
     }
   }
-
-  return expectedAnswer;
+  return answer;
 };
 
 export default () => {
@@ -42,10 +39,11 @@ export default () => {
   for (let i = 0; i < numRounds; i += 1) {
     const firstElement = getRandWithRange(1, 20);
     const step = getRandWithRange(1, 5);
-    const numSkip = getRandWithRange(1, getLength());
 
-    const question = getProgression(getLength(), firstElement, step, numSkip);
-    const expectedAnswer = getAnswer(getLength(), firstElement, step, numSkip);
+    const lengthProgression = getLength();
+    const numSkip = getRandWithRange(1, lengthProgression);
+    const question = getProgression(lengthProgression, firstElement, step, numSkip);
+    const expectedAnswer = getAnswer(lengthProgression, firstElement, step, numSkip);
 
     questionsAnswers.push([question, expectedAnswer]);
   }
