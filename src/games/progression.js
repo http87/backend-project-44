@@ -28,7 +28,7 @@ const getAnswer = (lengthProgression, firstElement, step, numSkip) => {
   for (let i = 0; i < lengthProgression; i += 1) {
     answer = firstElement + (step * i);
     if (numSkip === i) {
-      expectedAnswer = String(answer);
+      expectedAnswer = answer;
       break;
     }
   }
