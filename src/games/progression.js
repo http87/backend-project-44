@@ -11,17 +11,31 @@ const getLength = () => {
 };
 
 const getProgression = (lengthProgression, firstElement, step, numSkip) => {
-  let current = firstElement;
+  let current = 0;
   const progression = [];
   for (let i = 0; i < lengthProgression; i += 1) {
+    current = firstElement + (step * i);
     progression.push(current);
-    current += step;
   }
   const expectedAnswer = progression[numSkip];
   progression[numSkip] = '..';
-  const result = progression.join(' ');
+  const question = progression.join(' ');
 
-  return [result, expectedAnswer];
+  return question;
+};
+
+const getAnswer = (lengthProgression, firstElement, step, numSkip) => {
+  let answer = 0;
+  let expectedAnswer = '';
+  for (let i = 0; i < lengthProgression; i += 1) {
+    answer = firstElement + (step * i);
+    if (numSkip === i) {
+      expectedAnswer =  String(answer);
+      break;
+    }
+  }
+
+  return expectedAnswer;
 };
 
 export default () => {
@@ -32,7 +46,8 @@ export default () => {
     const step = getRandWithRange(1, 5);
     const numSkip = getRandWithRange(1, getLength());
 
-    const [question, expectedAnswer] = getProgression(getLength(), firstElement, step, numSkip);
+    const question = getProgression(getLength(), firstElement, step, numSkip);
+    const expectedAnswer = getAnswer(getLength(), firstElement, step, numSkip);
 
     questionsAnswers.push([question, expectedAnswer]);
   }
