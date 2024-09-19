@@ -11,10 +11,9 @@ const getLength = () => {
 };
 
 const getProgression = (lengthProgression, firstElement, step, numSkip) => {
-  let current = 0;
   const progression = [];
   for (let i = 0; i < lengthProgression; i += 1) {
-    current = firstElement + (step * i);
+    const current = firstElement + (step * i);
     progression.push(current);
   }
   progression[numSkip] = '..';
