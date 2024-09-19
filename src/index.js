@@ -1,15 +1,13 @@
 import readlineSync from 'readline-sync';
-import rules from './rules.js';
 
 export const numRounds = 3;
 
 // engine
-export default (questions, nameGame) => {
+export default (questions, rule) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
 
-  const rule = rules(nameGame);
   console.log(rule);
 
   for (let i = 0; i < questions.length; i += 1) {
@@ -26,5 +24,6 @@ export default (questions, nameGame) => {
       console.log(`Congratulations, ${userName}!`);
     }
   }
+
   return null;
 };

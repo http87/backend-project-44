@@ -1,41 +1,41 @@
-import engine, { numRounds } from '../index.js';
+import startGame, { numRounds } from '../index.js';
 import getRandWithRange from '../math.js';
 
-const getProgression = (param) => {
-  const [lengthProgression, numStartProgression, numSkip, stepIncrease] = param;
-  let nextValue = numStartProgression;
-  let progression = '';
-  let expectedAnswer = 0;
+const rule = 'What number is missing in the progression?';
+
+const getLength = () => {
+  const min = 5;
+  const max = 10;
+  const result = getRandWithRange(min, max);
+  return result;
+};
+
+const getProgression = (lengthProgression, firstElement, step, numSkip) => {
+  let current = firstElement;
+  const progression = [];
   for (let i = 0; i < lengthProgression; i += 1) {
-    if (numSkip === i + 1) {
-      expectedAnswer = nextValue;
-      progression = `${progression} ..`;
-      nextValue += stepIncrease;
-    }
-    progression = `${progression} ${nextValue}`;
-    nextValue += stepIncrease;
+    progression.push(current);
+    current += step;
   }
-  expectedAnswer += '';
-  progression = progression.trim();
-  return [progression, expectedAnswer];
+  const expectedAnswer = progression[numSkip];
+  progression[numSkip] = '..';
+  const result = progression.join(' ');
+
+  return [result, expectedAnswer];
 };
 
 export default () => {
-  const nameGames = 'progression';
   const questionsAnswers = [];
 
   for (let i = 0; i < numRounds; i += 1) {
-    const numStartProgression = getRandWithRange(1, 20);
-    const minLengthProgression = 5;
-    const maxLengthProgression = 10;
-    const lengthProgression = getRandWithRange(minLengthProgression, maxLengthProgression);
-    const stepIncrease = getRandWithRange(1, 5);
-    const numSkip = getRandWithRange(1, lengthProgression);
+    const firstElement = getRandWithRange(1, 20);
+    const step = getRandWithRange(1, 5);
+    const numSkip = getRandWithRange(1, getLength());
 
-    const param = [lengthProgression, numStartProgression, numSkip, stepIncrease];
-    const [question, expectedAnswer] = getProgression(param);
+    const [question, expectedAnswer] = getProgression(getLength(), firstElement, step, numSkip);
+
     questionsAnswers.push([question, expectedAnswer]);
   }
 
-  engine(questionsAnswers, nameGames);
+  startGame(questionsAnswers, rule);
 };

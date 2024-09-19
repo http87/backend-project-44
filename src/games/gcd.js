@@ -1,30 +1,23 @@
-import engine, { numRounds } from '../index.js';
+import startGame, { numRounds } from '../index.js';
 import getRandWithRange from '../math.js';
 
-// GCD - greatest common divisor
-const getGCD = (x, y) => {
-  let maxDivisor = 0;
+const rule = 'Find the greatest common divisor of given numbers.';
 
-  if (x === y) {
-    maxDivisor = x;
-    return maxDivisor;
-  }
-
-  const min = (x < y) ? x : y;
-  let i = 1;
-  while (i <= min) {
-    if (x % i === 0 && y % i === 0) {
-      maxDivisor = i;
+const getGCD = (num1, num2) => {
+  let x = num1;
+  let y = num2;
+  while (x !== 0 && y !== 0) {
+    if (x < y) {
+      y %= x;
+    } else if (y < x) {
+      x %= y;
     }
-    i += 1;
   }
 
-  return maxDivisor;
+  return x + y;
 };
 
 export default () => {
-  // Рассказываем о оправилах игры
-  const nameGames = 'gcd';
   const questionsAnswers = [];
 
   for (let i = 0; i < numRounds; i += 1) {
@@ -34,5 +27,6 @@ export default () => {
     const question = `${number1} ${number2}`;
     questionsAnswers.push([question, expectedAnswer]);
   }
-  engine(questionsAnswers, nameGames);
+
+  startGame(questionsAnswers, rule);
 };
