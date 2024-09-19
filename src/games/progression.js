@@ -23,7 +23,7 @@ const getProgression = (lengthProgression, firstElement, step, numSkip) => {
 };
 
 const getAnswer = (lengthProgression, firstElement, step, numSkip) => {
-  let  answer = 0;
+  let answer = 0;
   for (let i = 0; i <= lengthProgression; i += 1) {
     answer = firstElement + (step * i);
     if (numSkip === i) {
