@@ -11,7 +11,8 @@ export default (questions, rule) => {
   console.log(rule);
 
   let i = 0;
-  for (const [question, answer] of questions) {
+  for (const item of questions) {
+    const [question, answer] = item;
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (String(answer) !== userAnswer) {
