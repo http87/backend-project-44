@@ -10,9 +10,8 @@ export default (questions, rule) => {
 
   console.log(rule);
 
-  let i = 0;
-  for (const item of questions) {
-    const [question, answer] = item;
+  for (let i = 0; i < questions.length; i += 1) {
+    const [question, answer] = questions[i];
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (String(answer) !== userAnswer) {
@@ -24,7 +23,6 @@ export default (questions, rule) => {
     if (i === (numRounds - 1)) {
       console.log(`Congratulations, ${userName}!`);
     }
-    i += 1;
   }
 
   return null;
